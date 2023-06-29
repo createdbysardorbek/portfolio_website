@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
 import AnimatedLetters from "../AnimatedLetters";
 import Logo from "./Logo";
+import Loader from "react-loaders";
 
 function Home() {
 
@@ -19,32 +20,36 @@ function Home() {
     }, []);
 
     return (
-        <div className="container home-page">
-            <div className="text-zone">
-                <h1>
-                    <span className={`${letterClass} _6`}>H</span>
-                    <span className={`${letterClass} _7`}>i,</span>
-                    <br/>
-                    <span className={`${letterClass} _8`}>I'</span>
-                    <span className={`${letterClass} _9`}>m</span>
-                    <img src={LogoTitle} alt="developer"/>
-                    <AnimatedLetters
-                        letterClass={letterClass}
-                        strArray={nameArray}
-                        idx={10}
-                    />
-                    <br/>
-                    <AnimatedLetters
-                        letterClass={letterClass}
-                        strArray={jobArray}
-                        idx={15}
-                    />
-                </h1>
-                <h2>Frontend Developer - React Developer / Gamer</h2>
-                <Link to={"/contact"} className="flat-button">CONTACT ME</Link>
+        <>
+            <div className="container home-page">
+                <div className="text-zone">
+                    <h1>
+                        <span className={`${letterClass} _6`}>H</span>
+                        <span className={`${letterClass} _7`}>i,</span>
+                        <br/>
+                        <span className={`${letterClass} _8`}>I'</span>
+                        <span className={`${letterClass} _9`}>m</span>
+                        <img src={LogoTitle} alt="developer"/>
+                        <AnimatedLetters
+                            letterClass={letterClass}
+                            strArray={nameArray}
+                            idx={10}
+                        />
+                        <br/>
+                        <AnimatedLetters
+                            letterClass={letterClass}
+                            strArray={jobArray}
+                            idx={15}
+                        />
+                    </h1>
+                    <h2>Frontend Developer - React Developer / Gamer</h2>
+                    <Link to={"/contact"} className="flat-button">CONTACT ME</Link>
+                </div>
+                <Logo />
             </div>
-            <Logo />
-        </div>
+            <Loader type={"pacman"} />
+        </>
+
     )
 }
 
